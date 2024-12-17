@@ -133,6 +133,7 @@ impl Cipher {
 
 fn get_transform_plan(js: &str) -> Result<Vec<String>> {
     let name = regex::escape(get_initial_function_name(js)?);
+    println!("{js}");
     let pattern = Regex::new(&format!(r#"{name}=function\(\w\)\{{[a-z=.(")]*;(.*);(?:.+)}}"#)).unwrap();
     Ok(
         pattern
